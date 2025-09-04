@@ -1,6 +1,6 @@
 # Core Application Dependencies
 Flask==3.1.0
-Flask-Cors==4.0.0
+Flask-Cors==5.0.0
 pandas==2.1.4
 numpy==1.26.4
 matplotlib==3.10.3
@@ -17,3 +17,5 @@ pytest-cov==4.1.0
 black==25.1.0
 isort==6.0.1
 flake8==6.0.0
+protobuf>=4.25.8 # not directly required, pinned by Snyk to avoid a vulnerability
+zipp>=3.19.1 # not directly required, pinned by Snyk to avoid a vulnerability
