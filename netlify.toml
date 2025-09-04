@@ -1,22 +1,20 @@
 [build]
-  command = "bash build.sh"
-  publish = "build"
+  command = ""
+  publish = "."
+  functions = "functions"
 
 [build.environment]
-  PYTHON_VERSION = "3.11"  # Using major.minor version for better compatibility
+  PYTHON_VERSION = "3.11"
   NODE_VERSION = "18"
 
-[dev]
-  command = "python app.py"
-  port = 5000
-  publish = "."
-
-[[redirects]]
-  from = "/app/*"
-  to = "/app"
-  status = 200
-
+# Serve index.html for all routes
 [[redirects]]
   from = "/*"
   to = "/index.html"
+  status = 200
+
+# API proxy to Flask backend
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/app/:splat"
   status = 200
